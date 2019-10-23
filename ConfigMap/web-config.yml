@@ -1,0 +1,11 @@
+apiVersion: v1 
+kind: ConfigMap 
+metadata:
+  name: web-config 
+data:
+  "statement": "Kubernetes is awesome!"
+  "appsettings.json": |
+    {
+      "my_config_value": "Configuration from Kubernetes ConfigMap!"
+    }
+

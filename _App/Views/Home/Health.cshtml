@@ -1,0 +1,21 @@
+﻿@model WebApplication.Models.HealthViewModel
+
+@{
+    ViewData["Title"] = "Health";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Healthy? @(Model.IsHealthy ? "Yes!" : "Nope...")</h1>
+    <ul class="text-left">
+        <li><h4>Pings</h4></li>
+        @foreach (var ping in Model.Pings)
+        {
+            <li>@ping.Time.ToString("HH:mm:ss") - @(ping.Success ? "Success" : "Failure")</li>
+        }
+    </ul>
+    @if(Model.IsHealthy) {
+        <form asp-asp-action="Health" asp-controller="Home" method="POST">
+            <button type="submit" clas="btn btn-large btn-primary">Set Unhealthy</button>
+        </form>
+    }
+</div>

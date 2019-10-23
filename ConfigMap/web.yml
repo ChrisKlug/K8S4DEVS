@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+spec:
+  containers:
+  - name: web
+    image: k8s4devs.azurecr.io/k8s4devs/webapp:v0.2
+    imagePullPolicy: Always
+    ports:
+    - containerPort: 80
+    env:
+    - name: K8S4DEVS_K8s_Environment_ConfigValue
+      valueFrom:
+        configMapKeyRef:
+          name: web-config
+          key: statement
+    volumeMounts:
+      - name: config-volume
+        mountPath: /app/appsettings.Production.json
+        subPath: appsettings.json
+  volumes:
+    - name: config-volume
+      configMap:
+        name: web-config
+  imagePullSecrets:
+    - name:  k8s4devs

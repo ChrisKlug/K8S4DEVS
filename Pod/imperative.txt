@@ -1,0 +1,1 @@
+kubectl run --generator=run-pod/v1 webapp --image=k8s4devs.azurecr.io/k8s4devs/webapp:v0.2

@@ -1,0 +1,15 @@
+﻿@model WebApplication.Models.ConfigurationViewModel
+
+@{
+    ViewData["Title"] = "Configuration";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Configuration</h1>
+    <ul class="text-left">
+        @foreach (var key in Model.ConfigValues.Keys)
+        {
+            <li>@key: @Model.ConfigValues[key]</li>
+        }
+    </ul>
+</div>

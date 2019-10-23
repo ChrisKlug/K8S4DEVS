@@ -1,0 +1,16 @@
+﻿@model WebApplication.Models.RedisViewModel
+
+@{
+    ViewData["Title"] = "Redis";
+}
+
+<div class="text-center">
+    @if (Model.SupportsRedis) {
+        <h1 class="display-4">Redis Supported</h1>
+        <distributed-cache name="cached-data" expires-after="@TimeSpan.FromSeconds(5)">
+            Time Inside Cache: @DateTime.Now
+        </distributed-cache>
+    } else {
+        <h1 class="display-4">Redis Not Configured</h1>
+    }
+</div>

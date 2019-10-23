@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+  labels:
+    name: web
+spec:
+  containers:
+  - name: webapp
+    image: k8s4devs.azurecr.io/k8s4devs/webapp:v0.2
+    imagePullPolicy: Always
+    ports:
+    - containerPort: 80
+    livenessProbe:
+      httpGet:
+        path: /health
+        port: 80
+      initialDelaySeconds: 5
+      periodSeconds: 3
+      failureThreshold: 3
+  imagePullSecrets:
+    - name:  k8s4devs
