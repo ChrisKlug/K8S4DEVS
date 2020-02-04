@@ -18,6 +18,10 @@ kubectl create secret \
 
 You can read more about the process [here](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)!
 
+## More information
+
+For more information about Kubernetes, feel free to have a look at my intro series about Kubernetes on my blog. It starts here: https://fearofoblivion.com/yet-another-kubernetes-intro-part-1
+
 ---
 
 Any questions? Feel free to give me a shout - [@ZeroKoll](https://twitter.com/zerokoll)
